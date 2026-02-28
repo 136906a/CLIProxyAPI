@@ -531,6 +531,14 @@ func (s *Server) registerManagementRoutes() {
 		mgmt.PUT("/quota-exceeded/switch-preview-model", s.mgmt.PutSwitchPreviewModel)
 		mgmt.PATCH("/quota-exceeded/switch-preview-model", s.mgmt.PutSwitchPreviewModel)
 
+		mgmt.GET("/quota-exceeded/disable-credential", s.mgmt.GetDisableCredential)
+		mgmt.PUT("/quota-exceeded/disable-credential", s.mgmt.PutDisableCredential)
+		mgmt.PATCH("/quota-exceeded/disable-credential", s.mgmt.PutDisableCredential)
+
+		mgmt.GET("/quota-exceeded/re-enable-after", s.mgmt.GetReEnableAfter)
+		mgmt.PUT("/quota-exceeded/re-enable-after", s.mgmt.PutReEnableAfter)
+		mgmt.PATCH("/quota-exceeded/re-enable-after", s.mgmt.PutReEnableAfter)
+
 		mgmt.GET("/api-keys", s.mgmt.GetAPIKeys)
 		mgmt.PUT("/api-keys", s.mgmt.PutAPIKeys)
 		mgmt.PATCH("/api-keys", s.mgmt.PatchAPIKeys)

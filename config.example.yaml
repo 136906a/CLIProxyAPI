@@ -82,6 +82,8 @@ max-retry-interval: 30
 quota-exceeded:
   switch-project: true # Whether to automatically switch to another project when a quota is exceeded
   switch-preview-model: true # Whether to automatically switch to a preview model when a quota is exceeded
+  disable-credential: false # Automatically disable the credential file once quota is exceeded
+  re-enable-after: "" # Optional: auto re-enable after a duration, e.g. "24h"
 
 # Routing strategy for selecting credentials when multiple match.
 routing:

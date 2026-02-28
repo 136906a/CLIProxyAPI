@@ -169,6 +169,15 @@ type QuotaExceeded struct {
 
 	// SwitchPreviewModel indicates whether to automatically switch to a preview model when a quota is exceeded.
 	SwitchPreviewModel bool `yaml:"switch-preview-model" json:"switch-preview-model"`
+
+	// DisableCredential indicates whether to automatically disable the credential when its quota is exceeded.
+	// When enabled, the auth will be marked Disabled and removed from routing.
+	DisableCredential bool `yaml:"disable-credential" json:"disable-credential"`
+
+	// ReEnableAfter defines an optional duration after which a disabled credential will be automatically re-enabled.
+	// Only applies to credentials disabled by quota-exceeded.disable-credential.
+	// Example: "24h".
+	ReEnableAfter string `yaml:"re-enable-after" json:"re-enable-after"`
 }
 
 // RoutingConfig configures how credentials are selected for requests.

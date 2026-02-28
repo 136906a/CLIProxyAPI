@@ -77,6 +77,12 @@ func BuildConfigChangeDetails(oldCfg, newCfg *config.Config) []string {
 	if oldCfg.QuotaExceeded.SwitchPreviewModel != newCfg.QuotaExceeded.SwitchPreviewModel {
 		changes = append(changes, fmt.Sprintf("quota-exceeded.switch-preview-model: %t -> %t", oldCfg.QuotaExceeded.SwitchPreviewModel, newCfg.QuotaExceeded.SwitchPreviewModel))
 	}
+	if oldCfg.QuotaExceeded.DisableCredential != newCfg.QuotaExceeded.DisableCredential {
+		changes = append(changes, fmt.Sprintf("quota-exceeded.disable-credential: %t -> %t", oldCfg.QuotaExceeded.DisableCredential, newCfg.QuotaExceeded.DisableCredential))
+	}
+	if strings.TrimSpace(oldCfg.QuotaExceeded.ReEnableAfter) != strings.TrimSpace(newCfg.QuotaExceeded.ReEnableAfter) {
+		changes = append(changes, fmt.Sprintf("quota-exceeded.re-enable-after: %q -> %q", strings.TrimSpace(oldCfg.QuotaExceeded.ReEnableAfter), strings.TrimSpace(newCfg.QuotaExceeded.ReEnableAfter)))
+	}
 
 	if oldCfg.Routing.Strategy != newCfg.Routing.Strategy {
 		changes = append(changes, fmt.Sprintf("routing.strategy: %s -> %s", oldCfg.Routing.Strategy, newCfg.Routing.Strategy))
